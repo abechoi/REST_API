@@ -1,16 +1,20 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema();
+const Schema = mongoose.Schema;
 
 const ninjaSchema = new Schema({
   ninja: {
     type: String,
-    required: true
+    required: [true, 'Name field is required']
   },
   rank: {
     type: String,
-    required: true
+  },
+  available: {
+    type: Boolean,
+    required: false
   }
+  // Add geo location
 }, { timestamps: true });
 
-const Ninja = mongoose.model('Ninja', ninjaSchema);
+const Ninja = mongoose.model('ninja', ninjaSchema);
 module.exports = Ninja;
