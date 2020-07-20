@@ -1,9 +1,13 @@
 const express = require('express');
+const bodyParser = require('body-parser'); // deprecated
 
 // set up express app
 const app = express();
 
 // Middleware- Initialize routes
+app.use(bodyParser.json());
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
 app.use('/api/', require('./routes/api'));
 
 // listen for requests
