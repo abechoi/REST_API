@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ninjaSchema = new Schema({
-  ninja: {
+  name: {
     type: String,
     required: [true, 'Name field is required']
   },
