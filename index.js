@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser'); // deprecated
 const mongoose = require('mongoose');
+const morgan = require('morgan');
 
 // set up express app
 const app = express();
@@ -13,7 +14,13 @@ mongoose.Promise = global.Promise;
 app.use(bodyParser.json());
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
+app.use(morgan('dev'));
 app.use('/api/', require('./routes/api'));
+
+// error handling
+app.use((err, req, res, next) => {
+  res.status(422).send({ error: err.message });
+});
 
 // listen for requests
 // process.env.port is a setup variable for an environment like Heroku
