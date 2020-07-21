@@ -1,0 +1,59 @@
+{
+    "name" : "Choi Jong-Hae",
+    "rank" : "Hokage",
+    "available": true,
+    "geometry" : {
+        "type" : "Point",
+        "coordinates" : [-82.589, 26.701]
+    }
+}
+
+{
+    "name" : "Cha Hae-In",
+    "rank" : "Jounin",
+    "available": true,
+    "geometry" : {
+        "type" : "Point",
+        "coordinates" : [-80.245, 25.391]
+    }
+}
+
+{
+    "name" : "Anya Kichiro",
+    "rank" : "Chuunin",
+    "available": true,
+    "geometry" : {
+        "type" : "Point",
+        "coordinates" : [-83.712, 26.1]
+    }
+}
+
+{
+    "name" : "Fayna Rider",
+    "rank" : "Chuunin",
+    "available": true,
+    "geometry" : {
+        "type" : "Point",
+        "coordinates" : [-81.9, 22.2]
+    }
+}
+
+{
+    "name" : "Choi Jong-In",
+    "rank" : "Jounin",
+    "available": true,
+    "geometry" : {
+        "type" : "Point",
+        "coordinates" : [-80.80, 23.01]
+    }
+}
+
+{
+    "name" : "Kanza Reygar",
+    "rank" : "Jounin",
+    "available": true,
+    "geometry" : {
+        "type" : "Point",
+        "coordinates" : [-81.76, 25.701]
+    }
+}
