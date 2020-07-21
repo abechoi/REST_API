@@ -17,5 +17,57 @@
     <script src="unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
     <script src="unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js"></script>
 
+    <!-- Create React Component -->
+    <script type="text/babel">
+
+      import ReacDOM from 'react-dom';
+
+      const Ninjas = () => {
+
+        const [ ninjas, setNinjas ] = useState({ ninjas: [] });
+
+        const handleSubmit = (e) => {
+          e.preventDefault();
+          const lng = e.refs.lng.value;
+          const lat = e.refs.lat.value;
+
+          fetch( '/api/ninjas?lng=' + lng + '&lat=' + lat )
+          .then(result => {
+            return result.json();
+          })
+          .then(json => {
+            setNinjas({
+              ninjas: json
+            });
+          });
+        }
+        
+        ninjas = ninjas.map(( ninja, index ) => {
+          return (
+            <li key={ninja.id}>
+              <span className={ninja.available}></span>
+              <span className="name">{ninja.name}</span>
+              <span className="rank">{ninja.rank}</span>
+              <span className="dis">{Math.floor(ninja.dist / 1000)} km</span>
+            </li>
+          );
+        });
+
+        return (
+          <div id="ninja-container">
+            <form id="search" onSubmit={handleSubmit}>
+              <label >Enter latitude</label>
+              <input type="text" ref="lat" placeholder="latitude" required />
+              <label >Enter longitutde</label>
+              <input type="text" ref="lng" placeholder="longitude" required />
+              <input type="submit" value="Find Ninjas" />
+            </form>
+            <ul>{ninjas}</ul>
+          </div>
+        );
+      };
+
+      ReactDOM.render(<Ninjas />, document.getElementById('ninjas'));
+    </script>
   </body>
 </html>
